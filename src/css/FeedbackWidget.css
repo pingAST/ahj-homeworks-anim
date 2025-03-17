@@ -1,0 +1,237 @@
+/* ====================
+   CSS Variables
+   ==================== */
+:root {
+  --feedback-primary: #2196F3;
+  --feedback-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --feedback-radius: 12px;
+  --feedback-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --error-color: #ff4444;
+  --success-color: #4CAF50;
+}
+
+/* ====================
+   Main Container
+   ==================== */
+.feedback-widget {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 1000;
+}
+
+/* ====================
+   Widget Container
+   ==================== */
+.feedback-widget__container {
+  position: absolute;
+  bottom: calc(100% + 16px);
+  right: 0;
+  width: 320px;
+  background: white;
+  border-radius: var(--feedback-radius);
+  box-shadow: var(--feedback-shadow);
+  cursor: pointer;
+
+  /* Transition Properties */
+  opacity: 0;
+  transform: translateY(20px);
+  visibility: hidden;
+  transition: var(--feedback-transition);
+}
+
+.feedback-widget__container--visible {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+/* ====================
+   Toggle Button
+   ==================== */
+.feedback-widget__toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 56px;
+  height: 56px;
+  background: var(--feedback-primary);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: var(--feedback-transition);
+  box-shadow: var(--feedback-shadow);
+}
+
+.feedback-widget__toggle:hover {
+  background: #1976D2;
+  transform: scale(1.05);
+}
+
+/* ====================
+   Close Button
+   ==================== */
+.feedback-widget__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.feedback-widget__close:hover {
+  opacity: 1;
+}
+
+.feedback-widget__close-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* ====================
+   Form Elements
+   ==================== */
+.feedback-widget__form {
+  padding: 24px;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.feedback-widget__form--hidden {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  height: 0;
+}
+
+.feedback-widget__title {
+  margin: 0 0 20px 0;
+  font-size: 20px;
+  color: #333;
+}
+
+.feedback-widget__input {
+  width: 90%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-family: inherit;
+  font-size: 14px;
+  resize: vertical;
+  min-height: 100px;
+  max-height: 300px;
+  transition: height 0.2s ease, border-color 0.2s ease;
+}
+
+.feedback-widget__input:focus {
+  outline: none;
+  border-color: var(--feedback-primary);
+  box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
+}
+
+.feedback-widget__input--error {
+  border-color: var(--error-color);
+  box-shadow: 0 0 0 2px rgba(255, 68, 68, 0.2);
+}
+
+/* ====================
+   Submit Button
+   ==================== */
+.feedback-widget__submit {
+  width: 100%;
+  padding: 12px;
+  background: var(--feedback-primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.feedback-widget__submit:hover {
+  background: #1976D2;
+}
+
+/* ====================
+   Messages
+   ==================== */
+.feedback-widget__success-message {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: var(--feedback-radius);
+  padding: 32px 24px;
+  text-align: center;
+  color: var(--success-color);
+  font-weight: 500;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+  gap: 12px;
+  animation: fadeIn 0.3s ease, slideDown 0.3s ease;
+}
+
+.feedback-widget__success-message--visible {
+  display: flex;
+}
+
+.feedback-widget__error-message {
+  color: var(--error-color);
+  font-size: 14px;
+  margin-bottom: 8px;
+  display: none;
+}
+
+.feedback-widget__error-message--visible {
+  display: block;
+}
+
+/* ====================
+   Icons
+   ==================== */
+.white-icon {
+  color: white;
+}
+
+.feedback-widget__toggle i {
+  font-size: 1.5em;
+  transition: transform 0.2s ease;
+}
+
+.feedback-widget__close i {
+  font-size: 1.25em;
+}
+
+.feedback-widget__toggle:hover i {
+  transform: scale(1.1);
+}
+
+.feedback-widget__success-message i {
+  font-size: 2em;
+}
+
+/* ====================
+   Animations
+   ==================== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-20px); }
+  to { transform: translateY(0); }
+}

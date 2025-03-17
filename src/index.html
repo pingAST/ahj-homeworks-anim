@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Анимации и CSS</title>
+</head>
+<body>
+<!-- Collapse Widget -->
+<div class="collapse-widget">
+  <button class="modern-button">
+    <span class="button-text">Collapse</span>
+    <span class="button-icon"><i class="fas fa-chevron-down"></i></span>
+  </button>
+  <div class="content-box">
+    <div class="content-wrapper">
+      <p class="framed-text">
+        CSS-анимации позволяют анимировать переходы от одной конфигурации CSS стилей к другой.
+      </p>
+      <button class="copy-button" aria-label="Copy text">
+        <i class="copy-icon fas fa-copy"></i>
+        <span class="copy-text">Copy</span>
+        <span class="copy-feedback"></span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Liker Widget -->
+<div class="liker-widget">
+  <button class="liker-btn"><i class="fas fa-heart"></i> Like</button>
+</div>
+
+<!-- Feedback Widget -->
+<div class="feedback-widget">
+  <div class="feedback-widget__container">
+    <button class="feedback-widget__close" aria-label="Закрыть форму">
+      <i class="fas fa-times "></i>
+    </button>
+    <form class="feedback-widget__form">
+      <h3 class="feedback-widget__title">Напишите нам</h3>
+      <textarea
+        class="feedback-widget__input"
+        placeholder="Введите ваше сообщение..."
+        rows="4"
+      ></textarea>
+      <div class="feedback-widget__error-message">
+        Пожалуйста, введите ваше сообщение.
+      </div>
+      <button type="submit" class="feedback-widget__submit">
+        <i class="fas fa-paper-plane"></i> Отправить
+      </button>
+    </form>
+    <div class="feedback-widget__success-message">
+      <i class="fas fa-check-circle"></i>
+      <span>Сообщение успешно отправлено!</span>
+    </div>
+  </div>
+  <button
+    class="feedback-widget__toggle"
+    aria-label="Открыть форму обратной связи"
+    aria-expanded="false"
+  >
+    <i class="fas fa-comment-dots white-icon"></i>
+  </button>
+</div>
+
+</body>
